@@ -5,6 +5,7 @@ import retrofit2.Call
 import retrofit2.http.GET
 
 interface GiphyService {
-    @GET("stickers/trending")
+    //FIXME API key shouldn't be here
+    @GET("stickers/trending?api_key=s6kESXvXDrWQXwrXHs6pvChjWvAZXJmn")
     fun getTrending(): Call<Trending>
 }
