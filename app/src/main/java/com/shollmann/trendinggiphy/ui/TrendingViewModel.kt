@@ -12,7 +12,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 internal class TrendingViewModel : ViewModel() {
-    private val items = MutableLiveData<List<Gif>>().apply { value = emptyList() }
+    val items = MutableLiveData<List<Gif>>().apply { value = emptyList() }
     val trendingList: LiveData<List<Gif>> = items
 
     fun loadTrending() = GlobalScope.launch {

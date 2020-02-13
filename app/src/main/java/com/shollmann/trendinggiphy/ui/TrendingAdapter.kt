@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.shollmann.trendinggiphy.databinding.GifViewholderBinding
 import com.shollmann.trendinggiphy.model.Gif
 
@@ -21,10 +22,13 @@ class TrendingAdapter : ListAdapter<Gif, TrendingAdapter.ViewHolder>(GifDiffCall
     }
 
     class ViewHolder private constructor(private val binding: GifViewholderBinding) :
-            RecyclerView.ViewHolder(binding.root) {
+        RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: Gif) {
-            binding.gif = item
+        fun bind(gif: Gif) {
+            Glide.with(binding.image.context).load(gif.images.original.url)
+                .centerCrop()
+                .into(binding.image);
+            binding.gif = gif
             binding.executePendingBindings()
         }
 
