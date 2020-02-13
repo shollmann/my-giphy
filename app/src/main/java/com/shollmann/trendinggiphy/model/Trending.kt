@@ -1,3 +1,3 @@
 package com.shollmann.trendinggiphy.model
 
-data class Trending(val data: ArrayList<Gif>, val pepe: String)
+data class Trending(var data: ArrayList<Gif>)

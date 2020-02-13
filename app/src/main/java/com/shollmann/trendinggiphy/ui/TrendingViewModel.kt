@@ -18,7 +18,7 @@ internal class TrendingViewModel : ViewModel() {
     fun loadTrending() = GlobalScope.launch {
         val serviceResponse = GiphyRepository.getTrending()
 
-        if (serviceResponse.code != ResponseCode.SERVICE_ERROR) {
+        if (serviceResponse.code == ResponseCode.OK) {
             launch(Dispatchers.Main) {
                 items.value = (serviceResponse.response as Trending).data
             }
